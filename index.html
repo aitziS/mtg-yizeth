@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Kalte - Tokens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+    <body class="bg-gradient-to-br from-pink-50 via-purple-100 to-pink-50 min-h-screen font-sans">
+    <header class="text-center py-12 bg-gradient-to-r from-purple-200 via-pink-200 to-purple-200 rounded-b-3xl shadow-lg">
+    <!-- <h1 class="text-5xl font-extrabold text-purple-800 drop-shadow-lg animate-pulse"> -->
+    <h1 class="text-5xl font-extrabold text-purple-800 drop-shadow-lg">
+        MTG Yizeth
+    </h1>
+    <p class="text-xl text-purple-600 mt-2">-`♡´- Tu mazo, tu magia, tus tokens -`♡´-</p>
+    <p class="mt-4 text-sm text-purple-500">
+    Estos son ejemplos de artes, diseños y tokens a la venta.
+    <br>
+    Es posible hacer modificaciones en el diseño y el idioma.
+    Si quieres un diseño personalizado, envíame un <a href="https://instagram.com/yiz.eth" target="_blank" class="text-pink-500 font-semibold hover:underline">@MD por Instagram</a>.
+    </p>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+</main>
+
+<div id="imageModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="relative p-4 bg-white rounded-2xl shadow-[0_10px_40px_rgba(192,132,252,0.8)] max-w-4xl max-h-[90vh] flex flex-col items-center">
+        <button id="closeModal" class="absolute top-2 right-2 text-purple-700 text-3xl font-bold hover:text-purple-500 transition">&times;</button>
+        <img id="modalImage" src="" alt="Vista ampliada" class="max-w-full max-h-[80vh] rounded-xl shadow-lg">
+    </div>
+</div>
+
+<script>
+    const tokens = [
+        { name: "Ángel", image: "img/Angel.png", description: "Token celestial con toque kawaii", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Murciélago", image: "img/Bat.png", description: "Pequeño y misterioso compañero nocturno", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Pájaro", image: "img/Bird.png", description: "Token ligero y alegre para tu mazo", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Gato", image: "img/Cat.png", description: "Pequeño felino con mirada encantadora", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Copia", image: "img/Copy.png", description: "Pequeño y travieso, imita con encanto a cualquier criatura", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Copiaditto", image: "img/Copiaditto.png", description: "Duplicado travieso para tus estrategias", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Dragón", image: "img/Dragon.png", description: "Poder dracónico en tu mazo", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Dron", image: "img/Drone.png", description: "Explora el campo con tecnología avanzada", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Eldrazi", image: "img/Eldrazi.png", description: "Ser antiguo de otra dimensión", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Elemental", image: "img/Elemental.png", description: "Fuerza de la naturaleza en tu mazo", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Comida", image: "img/Food.png", description: "Delicioso token para animar tus partidas", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Caballo", image: "img/HorsePonyta.png", description: "Fiel compañero de aventuras", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Espíritu", image: "img/Spirit.png", description: "El Espíritu de la Venganza", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Inkling", image: "img/Inkling.png", description: "Criatura juguetona con tinta mágica", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Insecto", image: "img/Insect.png", description: "Pequeño pero útil en tu mazo", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Medusa", image: "img/Jellyfish.png", description: "Flota con gracia y misterio", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Caballero", image: "img/Knight.png", description: "Guerrero noble y valiente", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Planta", image: "img/Plant.png", description: "Vida verde que fortalece tu mazo", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Robot", image: "img/Robot.png", description: "Máquina lista para cualquier desafío", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Tesoro", image: "img/Treasure.png", description: "Riqueza y suerte en un token", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Tesoro", image: "img/RingTreasure.png", description: "Mi tesoro...", foil: "Estrellas | Holo | No foil", price: "1,00€" },
+        { name: "Vampiro", image: "img/Vampire.png", description: "Ser nocturno lleno de estilo", foil: "Estrellas | Holo | No foil", price: "1,00€" }
+    ];
+
+    const main = document.querySelector('main');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.getElementById('closeModal');
+
+    tokens.forEach(token => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-xl shadow-[0_8px_20px_rgba(192,132,252,0.5)] hover:shadow-[0_12px_30px_rgba(192,132,252,0.7)] transition p-4 text-center";
+
+        card.innerHTML = `
+            <img src="${token.image}" alt="${token.name}" class="mx-auto w-auto h-auto rounded-lg cursor-pointer">
+            <h2 class="text-xl font-semibold text-purple-700 mt-4">${token.name}</h2>
+            <p class="text-gray-600 text-sm">${token.description}</p>
+            <p class="text-purple-500 mt-2 text-sm"><strong>Foil:</strong> ${token.foil}</p>
+            <p class="text-pink-500 font-bold mt-1">${token.price}</p>
+        `;
+
+        const img = card.querySelector('img');
+        img.addEventListener('click', () => {
+            modalImg.src = token.image;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        });
+
+        main.appendChild(card);
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    });
+    </script>
+</body>
+</html>
